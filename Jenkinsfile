@@ -8,7 +8,7 @@ pipeline {
         //     sh 'docker build -t ce-project-backend:latest .'
         //   }
         echo 'test build'
-        }
+        // }
       }
     }
     // stage('Test') {
