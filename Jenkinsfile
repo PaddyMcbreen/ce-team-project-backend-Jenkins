@@ -7,8 +7,7 @@ pipeline {
         echo 'test build'
         // sh 'docker build -t learners-api:latest .'
         script {
-                    def customImage = docker.build("learners-api:${env.BUILD_ID}")
-                    customImage.push()
+                 app = docker.build("brandonjones085/test")    
                 }
       }
     }
