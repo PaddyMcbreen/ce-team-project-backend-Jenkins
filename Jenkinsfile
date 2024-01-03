@@ -5,12 +5,11 @@ pipeline {
         
       steps {
         echo 'test build'
-        sh 'docker build -t learners-api:latest .'
-        // script {
-        //   docker.image('learners-api:latest').inside {
-        //     sh 'docker build -t learners-api:latest .'
-        //   }
-        // }
+        // sh 'docker build -t learners-api:latest .'
+        script {
+                    def customImage = docker.build("learners-api:${env.BUILD_ID}")
+                    customImage.push()
+                }
       }
     }
     // stage('Test') {
