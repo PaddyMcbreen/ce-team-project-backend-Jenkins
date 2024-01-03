@@ -3,11 +3,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-
-        script {
-          docker.image('learners-api:latest').inside {
-            sh 'docker build -t learners-api:latest .'
-          }
+        sh 'docker build -t learners-api:latest .'
+        // script {
+        //   docker.image('learners-api:latest').inside {
+        //     sh 'docker build -t learners-api:latest .'
+        //   }
         echo 'test build'
         }
       }
