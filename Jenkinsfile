@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        script {
-        //   docker.image('ce-project-backend:latest').inside {
-        //     sh 'docker build -t ce-project-backend:latest .'
-        //   }
-        sudo 'docker build -t ce-project-backend:latest .'
-        echo 'test build'
-        }
+        sh 'docker build -t ce-project-backend:latest .'
+        // script {
+        // //   docker.image('ce-project-backend:latest').inside {
+        // //     sh 'docker build -t ce-project-backend:latest .'
+        // //   }
+        // echo 'test build'
+        // }
       }
     }
     // stage('Test') {
