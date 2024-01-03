@@ -10,7 +10,6 @@ CMD ["mvn", "spring-boot:run", "-Dspring-boot.run.jvmArguments='-agentlib:jdwp=t
 FROM base as build
 RUN mvn package
 
-
 FROM eclipse-temurin:17-jre-jammy as production
 EXPOSE 8080
 COPY --from=build /app/target/learners-api-*.jar /learners-api.jar
