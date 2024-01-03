@@ -2,14 +2,15 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+        
       steps {
+        echo 'test build'
         sh 'docker build -t learners-api:latest .'
         // script {
         //   docker.image('learners-api:latest').inside {
         //     sh 'docker build -t learners-api:latest .'
         //   }
-        echo 'test build'
-        }
+        // }
       }
     }
     // stage('Test') {
