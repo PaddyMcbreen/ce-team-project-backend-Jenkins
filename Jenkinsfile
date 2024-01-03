@@ -7,7 +7,7 @@ pipeline {
         //   docker.image('ce-project-backend:latest').inside {
         //     sh 'docker build -t ce-project-backend:latest .'
         //   }
-        sh 'docker build -t ce-project-backend:latest .'
+        sh 'sudo docker build -t ce-project-backend:latest .'
         echo 'test build'
         }
       }
