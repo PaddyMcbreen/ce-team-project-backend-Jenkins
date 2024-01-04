@@ -1,0 +1,45 @@
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@8.2.1
+  # docker: circleci/docker@2.4.0
+
+jobs:
+  build-and-test:
+    working_directory: ~/ce-team-project-backend
+    docker:
+      - image: cimg/openjdk:17.0.7
+
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: mvn -B -DskipTests clean package
+          working_directory: ~/ce-team-project-backend/src/main/java/com/northcoders
+
+      - run:
+          name: Test
+          command: mvn test
+          working_directory: ~/ce-team-project-backend/src/main/java/com/northcoders
+
+  build-image-and-push:
+    working_directory: ~/ce-team-project-backend
+    docker:
+      - image: cimg/aws:2023.05
+    steps:
+      - setup_remote_docker 
+      - aws-ecr/build-and-push-image:
+          repo: backend-project
+          path: "ce-team-project-backend" 
+          build-path: "ce-team-project-backend" 
+          tag: ${CIRCLE_BUILD_NUM} 
+          public-registry-alias: v5g0a1h5
+          public-registry: true
+          
+
+workflows:
+  demo-app-pipeline:
+    jobs:
+      - build-and-test
+      - build-image-and-push:
+          requires: 
+            - build-and-test 
