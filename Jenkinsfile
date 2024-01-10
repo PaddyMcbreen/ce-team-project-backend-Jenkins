@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t shenukacj/learners-api:0.1.4 .'
+        sh 'docker build -t shenukacj/learners-api:1.0.7 .'
       }
     }
     stage('Login') {
@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push shenukacj/learners-api:0.1.4'
+        sh 'docker push shenukacj/learners-api:1.0.7'
       }
     }
   }
