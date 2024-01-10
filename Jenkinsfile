@@ -5,11 +5,12 @@ pipeline {
   }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    VALUES = credentials('secret-values')
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t shenukacj/learners-api:1.0.3 .'
+        sh 'docker build -t shenukacj/learners-api:0.1.1 .'
       }
     }
     stage('Login') {
@@ -19,7 +20,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push shenukacj/learners-api:1.0.3'
+        sh 'docker push shenukacj/learners-api:0.1.1'
       }
     }
   }
@@ -30,3 +31,4 @@ pipeline {
   }
 }
 
+// 
