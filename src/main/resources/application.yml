@@ -16,16 +16,4 @@ management:
         include: "health,info,prometheus"
 
 spring:
-  datasource:
-    # url: jdbc:postgresql://localhost:5433/testdb2
-    url: jdbc:postgresql://nclearnerdbc237920.cqe7czveuhhz.eu-west-2.rds.amazonaws.com:5432/testdb2
-    username: nclearner
-    password: password
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-    show-sql: false
+  {{ .Values.spring }}
