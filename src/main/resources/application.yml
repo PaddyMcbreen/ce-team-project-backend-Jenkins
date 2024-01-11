@@ -18,9 +18,9 @@ management:
 spring:
   datasource:
     # url: jdbc:postgresql://localhost:5433/testdb2
-    url: jdbc:postgresql://default934a315.cqe7czveuhhz.eu-west-2.rds.amazonaws.com:5432/testdb2
-    username: nclearner
-    password: password
+    url: run-k8s-secrets
+    username: run-k8s-secrets
+    password: run-k8s-secrets
   jpa:
     hibernate:
       ddl-auto: validate
